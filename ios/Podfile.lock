@@ -284,6 +284,7 @@ PODS:
   - hermes-engine (0.74.5):
     - hermes-engine/Pre-built (= 0.74.5)
   - hermes-engine/Pre-built (0.74.5)
+  - Mute (0.6.1)
   - RCT-Folly (2024.01.01.00):
     - boost
     - DoubleConversion
@@ -1216,7 +1217,7 @@ PODS:
     - react-native-config/App (= 1.5.3)
   - react-native-config/App (1.5.3):
     - React-Core
-  - react-native-safe-area-context (4.10.5):
+  - react-native-safe-area-context (4.11.0):
     - React-Core
   - react-native-slider (4.5.2):
     - DoubleConversion
@@ -1239,6 +1240,9 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - react-native-volume-manager (1.10.0):
+    - Mute
+    - React-Core
   - React-nativeconfig (0.74.5)
   - React-NativeModulesApple (0.74.5):
     - glog
@@ -1595,6 +1599,7 @@ DEPENDENCIES:
   - react-native-config (from `../node_modules/react-native-config`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - "react-native-slider (from `../node_modules/@react-native-community/slider`)"
+  - react-native-volume-manager (from `../node_modules/react-native-volume-manager`)
   - React-nativeconfig (from `../node_modules/react-native/ReactCommon`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -1626,6 +1631,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Mute
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -1734,6 +1740,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-slider:
     :path: "../node_modules/@react-native-community/slider"
+  react-native-volume-manager:
+    :path: "../node_modules/react-native-volume-manager"
   React-nativeconfig:
     :path: "../node_modules/react-native/ReactCommon"
   React-NativeModulesApple:
@@ -1817,6 +1825,7 @@ SPEC CHECKSUMS:
   fmt: 4c2741a687cc09f0634a2e2c72a838b99f1ff120
   glog: fdfdfe5479092de0c4bdbebedd9056951f092c4f
   hermes-engine: 8c1577f3fdb849cbe7729c2e7b5abc4b845e88f8
+  Mute: 20135a96076f140cc82bfc8b810e2d6150d8ec7e
   RCT-Folly: 02617c592a293bd6d418e0a88ff4ee1f88329b47
   RCTDeprecation: 3afceddffa65aee666dafd6f0116f1d975db1584
   RCTRequired: ec1239bc9d8bf63e10fb92bd8b26171a9258e0c1
@@ -1842,8 +1851,9 @@ SPEC CHECKSUMS:
   React-logger: 257858bd55f3a4e1bc0cf07ddc8fb9faba6f8c7c
   React-Mapbuffer: 6c1cacdbf40b531f549eba249e531a7d0bfd8e7f
   react-native-config: 8f7283449bbb048902f4e764affbbf24504454af
-  react-native-safe-area-context: a240ad4b683349e48b1d51fed1611138d1bdad97
+  react-native-safe-area-context: 851c62c48dce80ccaa5637b6aa5991a1bc36eca9
   react-native-slider: ce295d2bf830a7990af05b0bd70ab28c133e230c
+  react-native-volume-manager: 3c7d8047841b6831730dea7bf25250522388b4f4
   React-nativeconfig: ba9a2e54e2f0882cf7882698825052793ed4c851
   React-NativeModulesApple: 8d11ff8955181540585c944cf48e9e7236952697
   React-perflogger: ed4e0c65781521e0424f2e5e40b40cc7879d737e

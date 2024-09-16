@@ -14,6 +14,7 @@ const SongControls: React.FC<SongControlsProps> = ({ songUrl }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [volume, setVolume] = useState(0.5); // Default volume
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const playSong = (url: string) => {
@@ -29,6 +30,7 @@ const SongControls: React.FC<SongControlsProps> = ({ songUrl }) => {
       }
       setDuration(soundInstance.getDuration());
       setProgress(0);
+      soundInstance.setVolume(volume);
       soundInstance.play((success) => {
         if (success) {
           setIsPlaying(false);
@@ -109,6 +111,14 @@ const SongControls: React.FC<SongControlsProps> = ({ songUrl }) => {
     }
   };
 
+  const adjustVolume = (adjustment: number) => {
+    if (sound) {
+      const newVolume = Math.max(0, Math.min(1, volume + adjustment));
+      sound.setVolume(newVolume);
+      setVolume(newVolume);
+    }
+  };
+
   return (
     <View className="flex-1 justify-center items-center w-full px-5">
       <Slider
@@ -125,17 +135,31 @@ const SongControls: React.FC<SongControlsProps> = ({ songUrl }) => {
         <Text className="text-[#b3b3b3]">{formatTime(progress)}</Text>
         <Text className="text-[#b3b3b3]">{formatTime(duration)}</Text>
       </View>
-      <TouchableOpacity
-        className="bg-[#b91d51] rounded-full p-2.5 w-[52px] h-[52px] justify-center items-center"
-        onPress={togglePlayPause}
-        disabled={isLoading}
-      >
-        {isLoading ? (
-          <ActivityIndicator color="#000" />
-        ) : (
-          <Ionicons name={isPlaying ? "pause" : "play"} size={32} color="#000" />
-        )}
-      </TouchableOpacity>
+      <View className="flex-row justify-center items-center w-full mb-5">
+        <TouchableOpacity
+          className="bg-[#b91d51] rounded-full p-2.5 w-[52px] h-[52px] justify-center items-center mr-4"
+          onPress={() => adjustVolume(-0.1)}
+        >
+          <Ionicons name="volume-low" size={24} color="#000" />
+        </TouchableOpacity>
+        <TouchableOpacity
+          className="bg-[#b91d51] rounded-full p-2.5 w-[52px] h-[52px] justify-center items-center"
+          onPress={togglePlayPause}
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <ActivityIndicator color="#000" />
+          ) : (
+            <Ionicons name={isPlaying ? "pause" : "play"} size={32} color="#000" />
+          )}
+        </TouchableOpacity>
+        <TouchableOpacity
+          className="bg-[#b91d51] rounded-full p-2.5 w-[52px] h-[52px] justify-center items-center ml-4"
+          onPress={() => adjustVolume(0.1)}
+        >
+          <Ionicons name="volume-high" size={24} color="#000" />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
