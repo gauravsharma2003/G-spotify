@@ -1,0 +1,29 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "jsx": "react-native",
+    "types": [
+      "cookie",
+      "crypto-js",
+      "hammerjs",
+      "jsdom",
+      "prop-types",
+      "react",
+      "react-native",
+      "react-test-renderer",
+      "tough-cookie"
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
+}
